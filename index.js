@@ -39,7 +39,7 @@ app.post("/send_mail", (req, res) => {
       console.log("Email send" + info.response);
       res.send("success");
     }
-    res.redirect("/");
+   
   });
 });
 server.listen(port, () => {
