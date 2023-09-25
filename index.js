@@ -10,7 +10,7 @@ app.set("port", port);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "../contact.html")));
-
+app.post()
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../contact.html"));
 });
@@ -18,8 +18,8 @@ app.post("/send_mail", (req, res) => {
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: "fenzfashion01@gmail.com",
-      pass: "xcnshqmpzwrjdqvu",
+      user: "foundmissing49@gmail.com",
+      pass: "jwxmorwthyinhsda",
     },
     tls: {
       rejectUnauthorized: false,
@@ -28,8 +28,8 @@ app.post("/send_mail", (req, res) => {
 
   const mailOptions = {
     from: req.body.email,
-    to: "fenzfashion01@gmail.com",
-    subject: `Message from ${req.body.name}: Phone Number - ${req.body.subject}`,
+    to: "foundmissing49@gmail.com",
+    subject: `Message from ${req.body.name}: ${req.body.subject}`,
     text: req.body.message,
   };
   transporter.sendMail(mailOptions, (error, info) => {
@@ -39,7 +39,7 @@ app.post("/send_mail", (req, res) => {
       console.log("Email send" + info.response);
       res.send("success");
     }
-   
+    res.redirect("/");
   });
 });
 server.listen(port, () => {
