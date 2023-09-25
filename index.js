@@ -18,8 +18,8 @@ app.post("/send_mail", (req, res) => {
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: "foundmissing49@gmail.com",
-      pass: "jwxmorwthyinhsda",
+      user: "fenzfashion01@gmail.com",
+      pass: "xcnshqmpzwrjdqvu",
     },
     tls: {
       rejectUnauthorized: false,
@@ -28,8 +28,8 @@ app.post("/send_mail", (req, res) => {
 
   const mailOptions = {
     from: req.body.email,
-    to: "foundmissing49@gmail.com",
-    subject: `Message from ${req.body.name}: ${req.body.subject}`,
+    to: "fenzfashion01@gmail.com",
+    subject: `Message from ${req.body.name}: Phone Number - ${req.body.subject}`,
     text: req.body.message,
   };
   transporter.sendMail(mailOptions, (error, info) => {
@@ -37,7 +37,7 @@ app.post("/send_mail", (req, res) => {
       console.log(error);
     } else {
       console.log("Email send" + info.response);
-      res.send("success");
+      // res.send("success");
     }
     res.redirect("/");
   });
